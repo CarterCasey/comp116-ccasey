@@ -111,7 +111,7 @@ def liveCapture iface
 			count += 1
 		end
 		if checkCard pkt
-			puts "#{count}. ALERT: Credit card leaked in the clear from #{pkt.ip_saddr} (#{pkt.proto.last}) (#{payload})!"
+			puts "#{count}. ALERT: Credit card leaked in the clear from #{pkt.ip_saddr} (HTTP) (#{payload})!"
 			count += 1
 		end
 	end
