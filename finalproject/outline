@@ -1,0 +1,15 @@
+Outline:
+
+
+References:
+	The Domino Effect of Password Reuse -
+		http://delivery.acm.org.ezproxy.library.tufts.edu/10.1145/980000/975820/p75-ives.pdf?ip=130.64.11.153&id=975820&acc=ACTIVE%20SERVICE&key=AA86BE8B6928DDC7%2E4579F4D1C4C67060%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&CFID=447388812&CFTOKEN=95751104&__acm__=1414265194_357bb16c4747afa5e2f7a97315684918
+	http://www.technologyreview.com/news/531926/a-physical-key-to-your-google-account/
+	https://www.patexia.com/feed/replacing-the-password-more-secure-high-tech-alternatives-to-traditional-alphanumerics-3404
+	A Survey on Password Security Systems -
+		http://www.ijecse.org/wp-content/uploads/2013/03/Volume-2Number-2PP-546-548x.pdf
+	Password Memorability and Security: Empirical Results -
+		http://homepages.cs.ncl.ac.uk/jeff.yan/jyan_ieee_pwd.pdf
+
+Supporting Material:
+	A program that utilizes a physical USB key to decrypt files, as well as giving access to a sample website.
