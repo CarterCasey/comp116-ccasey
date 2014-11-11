@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+	<link rel="stylesheet" href="risk-table.css" type="text/css" media="screen" />
+	<title>COMP 116: Technical Risk Table for Assignment 4</title>
+</head>
+<body>
+	<h3>Example:</h3>
+	<table>
+		<tr>
+			<th>Column Name</th>
+			<th>Information</th>
+		</tr>
+		<tr>
+			<td>Risk ID</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>Technical Risk</td>
+			<td>User authentication to system can be brute-forced.</td>
+		</tr>
+		<tr>
+			<td>Techical Risk Indicators</td>
+			<td>Number of incorrect logins for accounts seen in logs; performance of login server has been degrading.</td>
+		</tr>
+		<tr>
+			<td>Impact Rating</td>
+			<td>H</td>
+		</tr>
+		<tr>
+			<td>Impact</td>
+			<td>Increased load on login server; slower performance; possible denial of service</td>
+		</tr>
+		<tr>
+			<td>Mitigation</td>
+			<td>Lock out user account on 5 incorrect password tries by setting account lockout flag to true.</td>
+		</tr>
+		<tr>
+			<td>Validation Steps</td>
+			<td>Account lockout flag set for user account on 5 incorrect password tries.</td>
+		</tr>
+	</table>
+</body>
+</html>
