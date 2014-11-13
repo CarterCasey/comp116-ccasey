@@ -1,46 +1,990 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-	<link rel="stylesheet" href="risk-table.css" type="text/css" media="screen" />
-	<title>COMP 116: Technical Risk Table for Assignment 4</title>
-</head>
-<body>
-	<h3>Example:</h3>
-	<table>
-		<tr>
-			<th>Column Name</th>
-			<th>Information</th>
-		</tr>
-		<tr>
-			<td>Risk ID</td>
-			<td>1</td>
-		</tr>
-		<tr>
-			<td>Technical Risk</td>
-			<td>User authentication to system can be brute-forced.</td>
-		</tr>
-		<tr>
-			<td>Techical Risk Indicators</td>
-			<td>Number of incorrect logins for accounts seen in logs; performance of login server has been degrading.</td>
-		</tr>
-		<tr>
-			<td>Impact Rating</td>
-			<td>H</td>
-		</tr>
-		<tr>
-			<td>Impact</td>
-			<td>Increased load on login server; slower performance; possible denial of service</td>
-		</tr>
-		<tr>
-			<td>Mitigation</td>
-			<td>Lock out user account on 5 incorrect password tries by setting account lockout flag to true.</td>
-		</tr>
-		<tr>
-			<td>Validation Steps</td>
-			<td>Account lockout flag set for user account on 5 incorrect password tries.</td>
-		</tr>
-	</table>
-</body>
-</html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>COMP 116: Technical Risk Table for Assignment 4</TITLE>
+	<META NAME="GENERATOR" CONTENT="LibreOffice 4.1.5.3 (MacOSX)">
+	<META NAME="CREATED" CONTENT="0;0">
+	<META NAME="CHANGED" CONTENT="20141113;171125746644000">
+	<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<STYLE TYPE="text/css">
+	<!--
+		TD P { text-align: left }
+		H3.cjk { font-family: "SimSun" }
+		H3.ctl { font-family: "Lucida Sans" }
+		H4.cjk { font-family: "SimSun" }
+		H4.ctl { font-family: "Lucida Sans" }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<H3 CLASS="western" STYLE="margin-top: 0in; margin-bottom: 0in">Technical
+Risk Analysis on Capture the Flag</H3>
+<H4 CLASS="western" STYLE="margin-top: 0in; margin-bottom: 0in; line-height: 100%">
+Carter Casey</H4>
+<P STYLE="margin-bottom: 0in; line-height: 100%"><BR>
+</P>
+<P STYLE="margin-bottom: 0in; line-height: 100%">Note: The extra
+categories and descriptions below are provided by Veracode's report.
+I thought it would be a good way to organize the tables, and
+potentially make it more readable.</P>
+<P STYLE="margin-bottom: 0.1in; line-height: 100%"><BR><BR>
+</P>
+<H3 CLASS="western" STYLE="margin-top: 0in; margin-bottom: 0.2in; line-height: 100%">
+High (8 Flaws)</H3>
+<H4 CLASS="western">Code Injection (1 flaw)</H4>
+<P>Code injection is the process of injecting untrusted input into an
+application that dynamically evalutes and executes the input as code.
+Common examples of code injection include Remote File Includes and
+Eval Injection into applications implemented in an interpreted
+language such as PHP.</P>
+<P>Do not allow untrusted input to be evaluated or otherwise
+interpreted as code.</P>
+<TABLE WIDTH=796 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=136>
+	<COL WIDTH=650>
+	<TR>
+		<TD WIDTH=136 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.02in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Risk ID</P>
+		</TD>
+		<TD WIDTH=650 STYLE="border: 1px solid #000000; padding: 0.02in">
+			<P>1 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=136 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Locations</P>
+		</TD>
+		<TD WIDTH=650 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<PRE>ctf-f2014/www/wp-admin/update.php</PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=136 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Technical Risk</P>
+		</TD>
+		<TD WIDTH=650 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>Improper Control of Filename for Include/Require Statement in
+			PHP Program ('PHP Remote File Inclusion'): CWE ID 98 (1 Flaw)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=136 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Techical Risk Indicators</P>
+		</TD>
+		<TD WIDTH=650 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>The PHP application receives user-supplied input but does not
+			properly restrict the input before using it in require(),
+			include(), or similar functions. 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=136 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Impact Rating</P>
+		</TD>
+		<TD WIDTH=650 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>H</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=136 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Impact</P>
+		</TD>
+		<TD WIDTH=650 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>Can allow an attacker to specify a URL to a remote
+			location from which the application will retrieve code and execute
+			it.</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=136 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Mitigation</P>
+		</TD>
+		<TD WIDTH=650 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>Validate all user-supplied input to ensure that it conforms to
+			the expected format, using centralized data validation routines
+			when possible. Use white lists to specify known safe values rather
+			than relying on black lists to detect malicious input.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=136 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Validation Steps</P>
+		</TD>
+		<TD WIDTH=650 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>Attempt XSS attacks on your own website. Review
+			all points of access to the site, verify that the input is
+			sanitized. </FONT>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<H4 CLASS="western">SQL Injection (7 flaws)</H4>
+<P>SQL injection vulnerabilities occur when data enters an
+application from an untrusted source and is used to dynamically
+construct a SQL query. This allows an attacker to manipulate database
+queries in order to access, modify, or delete arbitrary data.
+Depending on the platform, database type, and configuration, it may
+also be possible to execute administrative operations on the
+database, access the filesystem, or execute arbitrary system
+commands. SQL injection attacks can also be used to subvert
+authentication and authorization schemes, which would enable an
+attacker to gain privileged access to restricted portions of the
+application.</P>
+<P>Several techniques can be used to prevent SQL injection attacks.
+These techniques complement each other and address security at
+different points in the application. Using multiple techniques
+provides defense-in-depth and minimizes the likelihood of a SQL
+injection vulnerability.</P>
+<TABLE WIDTH=798 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=142>
+	<COL WIDTH=646>
+	<TR>
+		<TD WIDTH=142 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.02in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Risk ID</P>
+		</TD>
+		<TD WIDTH=646 STYLE="border: 1px solid #000000; padding: 0.02in">
+			<P>2</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=142 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Locations</P>
+		</TD>
+		<TD WIDTH=646 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<PRE>ctf-f2014/www/board.php
+ctf-f2014/www/includes/dblib.php
+ctf-f2014/www/scoreboard/index.php
+ctf-f2014/www/wp-includes/SimplePie/Cache/MySQL.php
+ctf-f2014/www/wp-includes/wp-db.php              </PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=142 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Technical Risk</P>
+		</TD>
+		<TD WIDTH=646 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>Improper Neutralization of Special Elements used in an SQL
+			Command ('SQL Injection'): CWE ID 89 (7 Flaws)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=142 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Techical Risk Indicators</P>
+		</TD>
+		<TD WIDTH=646 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>This database query contains a SQL injection flaw. The function
+			call constructs a dynamic SQL query using a variable derived from
+			user-supplied input.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=142 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Impact Rating</P>
+		</TD>
+		<TD WIDTH=646 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>H</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=142 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Impact</P>
+		</TD>
+		<TD WIDTH=646 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>An attacker could exploit this flaw to execute
+			arbitrary SQL queries against the database. This means getting
+			private data, or manipulating data in the database.</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=142 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Mitigation</P>
+		</TD>
+		<TD WIDTH=646 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>Avoid dynamically constructing SQL queries. Instead, use
+			parameterized prepared statements to prevent the database from
+			interpreting the contents of bind variables as part of the query.
+			Always validate user-supplied input to ensure that it conforms to
+			the expected format, using centralized data validation routines
+			when possible.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=142 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Validation Steps</P>
+		</TD>
+		<TD WIDTH=646 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>Attempt sql injections on the site (one option
+			here is sqlmap). Verify that all sql queries are properly
+			sanitized.</FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<H3 CLASS="western">Medium (188 Flaws)</H3>
+<H4 CLASS="western">Credentials Management (9 flaws)</H4>
+<P>Improper management of credentials, such as usernames and
+passwords, may compromise system security. In particular, storing
+passwords in plaintext or hard-coding passwords directly into
+application code are design issues that cannot be easily remedied.
+Not only does embedding a password allow all of the project's
+developers to view the password, it also makes fixing the problem
+extremely difficult. Once the code is in production, the password
+cannot be changed without patching the software. If a hard-coded
+password is compromised in a commercial product, all deployed
+instances may be vulnerable to attack, putting customers at risk.</P>
+<P>Avoid storing passwords in easily accessible locations, and never
+store any type of sensitive data in plaintext. Avoid using hard-coded
+usernames, passwords, or hash constants whenever possible,
+particularly in relation to security-critical components. Store
+passwords out-of-band from the application code. Follow best
+practices for protecting credentials stored in alternate locations
+such as configuration or properties files.</P>
+<TABLE WIDTH=798 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=130>
+	<COL WIDTH=658>
+	<TR>
+		<TD WIDTH=130 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.02in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Risk ID</P>
+		</TD>
+		<TD WIDTH=658 STYLE="border: 1px solid #000000; padding: 0.02in">
+			<P>3</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=130 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Locations</P>
+		</TD>
+		<TD WIDTH=658 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<PRE>ctf-f2014/www/board.php
+ctf-f2014/www/includes/dblib.php
+ctf-f2014/www/scoreboard/index.php
+ctf-f2014/www/wp-admin/network/site-new.php                    </PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=130 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Technical Risk</P>
+		</TD>
+		<TD WIDTH=658 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>Use of Hard-coded Password: CWE ID 259 (9 Flaws)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=130 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Techical Risk Indicators</P>
+		</TD>
+		<TD WIDTH=658 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>A method uses a hard-coded password that may compromise system
+			security in a way that cannot be easily remedied. The use of a
+			hard-coded password significantly increases the possibility that
+			the account being protected will be compromised. 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=130 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Impact Rating</P>
+		</TD>
+		<TD WIDTH=658 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>M</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=130 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Impact</P>
+		</TD>
+		<TD WIDTH=658 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>The password cannot be changed without patching
+			the software. If a hard-coded password is compromised in a
+			commercial product, all deployed instances may be vulnerable to
+			attack. An attacker can find the password by gaining access to
+			only one of the files, and need not rely on any decription, as the
+			password is already in plain-text.</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=130 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Mitigation</P>
+		</TD>
+		<TD WIDTH=658 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>Store passwords out-of-band from the application code. Follow
+			best practices for protecting credentials stored in locations such
+			as configuration or properties files. Furthermore, store passwords
+			using encryption.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=130 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Validation Steps</P>
+		</TD>
+		<TD WIDTH=658 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>A simple grep for all your known passwords should
+			reveal whether those passwords are stored anywhere in your
+			application.</FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<H4 CLASS="western">Cross-Site Scripting (75 flaws)</H4>
+<P>Cross-site scripting (XSS) attacks occur when an attacker uses a
+web application to send malicious code, generally in the form of a
+browser side script, to a different end user. Flaws that allow these
+attacks to succeed occur whenever a web application uses untrusted
+data in the output it generates without validating or encoding it.
+XSS vulnerabilities are commonly exploited to steal or manipulate
+cookies, modify presentation of content, and compromise sensitive
+information, with new attack vectors being discovered on a regular
+basis. XSS is also commonly referred to as HTML injection.</P>
+<P>Several techniques can be used to prevent XSS attacks. These
+techniques complement each other and address security at different
+points in the application. Using multiple techniques provides
+defense-in-depth and minimizes the likelihood of a XSS vulnerability.</P>
+<TABLE WIDTH=796 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=104>
+	<COL WIDTH=682>
+	<TR>
+		<TD WIDTH=104 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.02in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Risk ID</P>
+		</TD>
+		<TD WIDTH=682 STYLE="border: 1px solid #000000; padding: 0.02in">
+			<P>4</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=104 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Locations</P>
+		</TD>
+		<TD WIDTH=682 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<PRE>ctf-f2014/www/wp-admin/includes/ajax-actions.php
+ctf-f2014/www/wp-admin/async-upload.php
+ctf-f2014/www/board.php
+ctf-f2014/www/wp-admin/includes/class-ftp-pure.php
+ctf-f2014/www/wp-admin/includes/class-ftp-sockets.php
+ctf-f2014/www/wp-admin/includes/class-ftp.php
+ctf-f2014/www/wp-includes/class-phpmailer.php
+ctf-f2014/www/wp-includes/class-smtp.php
+ctf-f2014/www/wp-admin/includes/class-wp-comments-list-table.php
+ctf-f2014/www/wp-includes/class-wp-editor.php
+ctf-f2014/www/wp-admin/includes/class-wp-list-table.php
+ctf-f2014/www/wp-admin/includes/class-wp-ms-users-list-table.php
+ctf-f2014/www/wp-admin/edit-comments.php
+ctf-f2014/www/wp-admin/includes/file.php
+ctf-f2014/www/wp-admin/import.php
+ctf-f2014/www/scoreboard/index.php
+ctf-f2014/www/wp-admin/install.php
+ctf-f2014/www/wp-admin/link-manager.php
+ctf-f2014/www/wp-admin/load-scripts.php
+ctf-f2014/www/wp-admin/load-styles.php
+ctf-f2014/www/wp-includes/media-template.php
+ctf-f2014/www/wp-admin/media.php
+ctf-f2014/www/wp-admin/includes/media.php
+ctf-f2014/www/wp-admin/my-sites.php
+ctf-f2014/www/wp-admin/includes/nav-menu.php
+ctf-f2014/www/wp-admin/plugin-editor.php
+ctf-f2014/www/wp-admin/plugins.php
+ctf-f2014/www/wp-admin/includes/post.php
+ctf-f2014/www/wp-admin/press-this.php
+ctf-f2014/www/wp-admin/setup-config.php
+ctf-f2014/www/wp-admin/theme-editor.php
+ctf-f2014/www/wp-admin/network/themes.php
+ctf-f2014/www/wp-admin/themes.php
+ctf-f2014/www/wp-admin/update-core.php
+ctf-f2014/www/wp-admin/upgrade.php
+ctf-f2014/www/wp-admin/upload.php
+ctf-f2014/www/wp-admin/user-edit.php
+ctf-f2014/www/wp-admin/user-new.php
+ctf-f2014/www/wp-admin/network/users.php
+ctf-f2014/www/wp-admin/widgets.php
+ctf-f2014/www/wp-includes/js/tinymce/wp-tinymce.php</PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=104 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Technical Risk</P>
+		</TD>
+		<TD WIDTH=682 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>Improper Neutralization of Script-Related HTML Tags in a Web
+			Pag (Basic XSS): CWE ID 80 (75 Flaws)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=104 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Techical Risk Indicators</P>
+		</TD>
+		<TD WIDTH=682 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>A function call contains a cross-site scripting (XSS) flaw. The
+			application populates the HTTP response with user-supplied input,
+			allowing an attacker to embed malicious content, such as
+			Javascript code, which will be executed in the context of the
+			victim's browser. 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=104 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P><FONT SIZE=3>Impact Rating</FONT></P>
+		</TD>
+		<TD WIDTH=682 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>M</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=104 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P><FONT SIZE=3>Impact</FONT></P>
+		</TD>
+		<TD WIDTH=682 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>XSS vulnerabilities are commonly exploited to
+			steal or manipulate cookies, modify presentation of content, and
+			compromise confidential information, with new attack vectors being
+			discovered on a regular basis. </FONT>
+			</P>
+			<P><FONT SIZE=3>By changing the script of the web page, the
+			attacker can change the behavior of the site itself. It can
+			redirect your browser to other pages, attempt to pull information
+			from your browser, etc.</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=104 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P><FONT SIZE=3>Mitigation</FONT></P>
+		</TD>
+		<TD WIDTH=682 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>Use contextual escaping on all untrusted data
+			before using it to construct any portion of an HTTP response. As a
+			best practice, always validate user-supplied input to ensure that
+			it conforms to the expected format, using centralized data
+			validation routines when possible.</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=104 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P><FONT SIZE=3>Validation Steps</FONT></P>
+		</TD>
+		<TD WIDTH=682 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>Again, attempt XSS attacks yourself. Verify that
+			all HTML tags are properly verified and sanitized.</FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<H4 CLASS="western">Cryptographic Issues (100 flaws)</H4>
+<P>Applications commonly use cryptography to implement authentication
+mechanisms and to ensure the confidentiality and integrity of
+sensitive data, both in transit and at rest. The proper and accurate
+implementation of cryptography is extremely critical to its efficacy.
+Configuration or coding mistakes as well as incorrect assumptions may
+negate a large degree of the protection it affords, leaving the
+crypto implementation vulnerable to attack.</P>
+<P>Select the appropriate type of cryptography for the intended
+purpose. Avoid proprietary encryption algorithms as they typically
+rely on &quot;security through obscurity&quot; rather than sound
+mathematics. Select key sizes appropriate for the data being
+protected; for high assurance applications, 256-bit symmetric keys
+and 2048-bit asymmetric keys are sufficient. Follow best practices
+for key storage, and ensure that plaintext data and key material are
+not inadvertently exposed.</P>
+<TABLE WIDTH=797 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=126>
+	<COL WIDTH=661>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.02in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Risk ID</P>
+		</TD>
+		<TD WIDTH=661 STYLE="border: 1px solid #000000; padding: 0.02in">
+			<P>5</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Locations</P>
+		</TD>
+		<TD WIDTH=661 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<PRE>ctf-f2014/www/wp-admin/includes/class-ftp-sockets.php
+ctf-f2014/www/wp-admin/includes/class-wp-filesystem-ftpext.php   </PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Technical Risk</P>
+		</TD>
+		<TD WIDTH=661 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>Missing Encryption of Sensitive Data: CWE ID 311 (3 Flaws)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Techical Risk Indicators</P>
+		</TD>
+		<TD WIDTH=661 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>The application exposes potentially sensitive data by passing
+			it into a function unencrypted. 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Impact Rating</P>
+		</TD>
+		<TD WIDTH=661 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>Could allow private data such as cryptographic
+			keys or other sensitive information to be exposed. </FONT>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Impact</P>
+		</TD>
+		<TD WIDTH=661 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>M</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Mitigation</P>
+		</TD>
+		<TD WIDTH=661 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>Ensure that the application protects all sensitive
+			data from unnecessary exposure. In other words, encrypt sensitive
+			data, or just don't pass it around.</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Validation Steps</P>
+		</TD>
+		<TD WIDTH=661 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<PRE>
+</PRE>
+<TABLE WIDTH=795 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=125>
+	<COL WIDTH=660>
+	<TR>
+		<TD WIDTH=125 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.02in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Risk ID</P>
+		</TD>
+		<TD WIDTH=660 STYLE="border: 1px solid #000000; padding: 0.02in">
+			<P>6</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=125 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Locations</P>
+		</TD>
+		<TD WIDTH=660 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<PRE>ctf-f2014/www/wp-includes/SimplePie/Author.php
+ctf-f2014/www/wp-includes/bookmark.php
+ctf-f2014/www/wp-includes/SimplePie/Caption.php
+ctf-f2014/www/wp-includes/SimplePie/Category.php
+ctf-f2014/www/wp-admin/includes/class-pclzip.php
+ctf-f2014/www/wp-includes/class-phpass.php
+ctf-f2014/www/wp-includes/class-phpmailer.php
+ctf-f2014/www/wp-includes/class-pop3.php
+ctf-f2014/www/wp-includes/class-simplepie.php
+ctf-f2014/www/wp-includes/class-smtp.php
+ctf-f2014/www/wp-includes/class-snoopy.php
+ctf-f2014/www/wp-includes/class-wp-embed.php
+ctf-f2014/www/wp-admin/includes/class-wp-ms-themes-list-table.php
+ctf-f2014/www/wp-admin/includes/class-wp-plugins-list-table.php
+ctf-f2014/www/wp-includes/class-wp-theme.php
+ctf-f2014/www/wp-admin/includes/class-wp-upgrader.php
+ctf-f2014/www/wp-includes/class-wp.php
+ctf-f2014/www/wp-includes/comment.php
+ctf-f2014/www/wp-includes/SimplePie/Copyright.php
+ctf-f2014/www/wp-includes/SimplePie/Credit.php
+ctf-f2014/www/wp-includes/cron.php
+ctf-f2014/www/wp-admin/includes/dashboard.php
+ctf-f2014/www/wp-includes/default-constants.php
+ctf-f2014/www/wp-includes/SimplePie/Enclosure.php
+ctf-f2014/www/wp-admin/includes/file.php
+ctf-f2014/www/wp-includes/general-template.php
+ctf-f2014/www/wp-includes/ID3/getid3.php
+ctf-f2014/www/wp-includes/SimplePie/gzdecode.php
+ctf-f2014/www/wp-admin/includes/image.php
+ctf-f2014/www/wp-includes/SimplePie/Item.php
+ctf-f2014/www/wp-includes/link-template.php
+ctf-f2014/www/wp-includes/SimplePie/Cache/Memcache.php
+ctf-f2014/www/wp-includes/ID3/module.tag.apetag.php
+ctf-f2014/www/wp-includes/ID3/module.tag.id3v2.php
+ctf-f2014/www/wp-includes/ms-blogs.php
+ctf-f2014/www/wp-includes/ms-files.php
+ctf-f2014/www/wp-includes/ms-functions.php
+ctf-f2014/www/wp-admin/includes/ms.php
+ctf-f2014/www/wp-includes/pluggable.php
+ctf-f2014/www/wp-admin/includes/plugin-install.php
+ctf-f2014/www/wp-includes/post.php
+ctf-f2014/www/wp-includes/query.php
+ctf-f2014/www/wp-includes/SimplePie/Rating.php
+ctf-f2014/www/wp-includes/SimplePie/Restriction.php
+ctf-f2014/www/wp-includes/rss.php
+ctf-f2014/www/wp-admin/includes/schema.php
+ctf-f2014/www/wp-includes/SimplePie/Source.php
+ctf-f2014/www/wp-includes/taxonomy.php
+ctf-f2014/www/wp-admin/includes/update-core.php
+ctf-f2014/www/wp-admin/includes/upgrade.php
+ctf-f2014/www/wp-admin/user-new.php
+                                </PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=125 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Technical Risk</P>
+		</TD>
+		<TD WIDTH=660 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>Use of a Broken or Risky Cryptographic Algorithm: CWE ID 327
+			(95 Flaws)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=125 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Techical Risk Indicators</P>
+		</TD>
+		<TD WIDTH=660 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>The use of a broken or risky cryptographic algorithm is an
+			unnecessary risk that may result in the disclosure of sensitive
+			information.</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=125 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Impact Rating</P>
+		</TD>
+		<TD WIDTH=660 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>M</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=125 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Impact</P>
+		</TD>
+		<TD WIDTH=660 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>An attacker
+			with access to the encrypted data could decrypt the data with
+			potentially unnecessary ease.</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=125 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Mitigation</P>
+		</TD>
+		<TD WIDTH=660 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Fairly simply,
+			use better encryption algorithms.  A list of broken algorithms can
+			be found on the web.</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=125 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Validation Steps</P>
+		</TD>
+		<TD WIDTH=660 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Verify that
+			all encryption algorithms meet proper standards (don't use broken
+			algorithms like SHA-1).</FONT></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<H4 CLASS="western">Directory Traversal (4 flaws)</H4>
+<P>Allowing user input to control paths used in filesystem operations
+may enable an attacker to access or modify otherwise protected system
+resources that would normally be inaccessible to end users. In some
+cases, the user-provided input may be passed directly to the
+filesystem operation, or it may be concatenated to one or more fixed
+strings to construct a fully-qualified path.</P>
+<P>Assume all user-supplied input is malicious. Validate all
+user-supplied input to ensure that it conforms to the expected
+format, using centralized data validation routines when possible.
+When using black lists, be sure that the sanitizing routine performs
+a sufficient number of iterations to remove all instances of
+disallowed characters and ensure that the end result is not
+dangerous.</P>
+<TABLE WIDTH=800 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=126>
+	<COL WIDTH=664>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.02in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Risk ID</P>
+		</TD>
+		<TD WIDTH=664 STYLE="border: 1px solid #000000; padding: 0.02in">
+			<P>7</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Locations</P>
+		</TD>
+		<TD WIDTH=664 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<PRE>ctf-f2014/www/wp-admin/includes/class-wp-upgrader.php
+ctf-f2014/www/wp-includes/Text/Diff/Engine/shell.php</PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Technical Risk</P>
+		</TD>
+		<TD WIDTH=664 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>External Control of File Name or Path: CWE ID 73 (4 Flaws)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Techical Risk Indicators</P>
+		</TD>
+		<TD WIDTH=664 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>This call contains a path manipulation flaw. The argument to
+			the function is a filename constructed using user-supplied input. 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Impact Rating</P>
+		</TD>
+		<TD WIDTH=664 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>M</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Impact</P>
+		</TD>
+		<TD WIDTH=664 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>If an attacker is allowed to specify all or part
+			of the filename, it may be possible to gain unauthorized access to
+			files on the server, including those outside the webroot, that
+			would be normally be inaccessible to end users. </FONT>
+			</P>
+			<P><FONT SIZE=3>In essence, an attacker can get to files that
+			aren't even part of the website on the hosting server.</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Mitigation</P>
+		</TD>
+		<TD WIDTH=664 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>Validate all user-supplied input to ensure that it
+			conforms to the expected format, using centralized data validation
+			routines when possible. When using black lists, be sure that the
+			sanitizing routine performs a sufficient number of iterations to
+			remove all instances of disallowed characters.</FONT></P>
+			<P><FONT SIZE=3>Again, the core idea is to sanitize input.</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=126 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Validation Steps</P>
+		</TD>
+		<TD WIDTH=664 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>At all places in your code that require a
+			pathname, verify that it doesn't come unchecked from a user.</FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<H3 CLASS="western">Low (7 Flaws)</H3>
+<H4 CLASS="western">Information Leakage (7 flaws)</H4>
+<P>An information leak is the intentional or unintentional disclosure
+of information that is either regarded as sensitive within the
+product's own functionality or provides information about the product
+or its environment that could be useful in an attack. Information
+leakage issues are commonly overlooked because they cannot be used to
+directly exploit the application. However, information leaks should
+be viewed as building blocks that an attacker uses to carry out
+other, more complicated attacks.</P>
+<P>Configure applications and servers to return generic error
+messages and to suppress stack traces from being displayed to end
+users. Ensure that errors generated by the application do not provide
+insight into specific backend issues.</P>
+<TABLE WIDTH=798 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=133>
+	<COL WIDTH=655>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.02in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Risk ID</P>
+		</TD>
+		<TD WIDTH=655 STYLE="border: 1px solid #000000; padding: 0.02in">
+			<P>8</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Locations</P>
+		</TD>
+		<TD WIDTH=655 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<PRE>ctf-f2014/www/board.php
+ctf-f2014/www/includes/dblib.php
+ctf-f2014/www/scoreboard/index.php
+ctf-f2014/www/wp-admin/plugins.php
+ctf-f2014/www/wp-admin/network/themes.php</PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Technical Risk</P>
+		</TD>
+		<TD WIDTH=655 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>Information Exposure Through an Error Message: CWE ID 209 (7
+			Flaws)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Techical Risk Indicators</P>
+		</TD>
+		<TD WIDTH=655 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>The software generates an error message that includes sensitive
+			information about its environment, users, or associated data. The
+			sensitive information may be valuable information on its own (such
+			as a password), or it may be useful for launching other, more
+			harmful attacks. 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Impact Rating</P>
+		</TD>
+		<TD WIDTH=655 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>L</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P><FONT SIZE=3>Impact</FONT></P>
+		</TD>
+		<TD WIDTH=655 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>If an attack fails, an attacker may use error
+			information provided by the server to launch another more focused
+			attack. For example, if a stack traces lists file paths, the
+			attacker could use those for a direct traversal attack.</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P><FONT SIZE=3>Mitigation</FONT></P>
+		</TD>
+		<TD WIDTH=655 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>Ensure that only generic error messages are
+			returned, which don't reveal any additional details.</FONT></P>
+			<P><FONT SIZE=3>In this case, the message is sanitize your output.</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P><FONT SIZE=3>Validation Steps</FONT></P>
+		</TD>
+		<TD WIDTH=655 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>Attempt to cause errors in your program, and see
+			what error messages are produced on the user's end.</FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<H3 CLASS="western"><BR><BR>
+</H3>
+<H4 CLASS="western">Untrusted Initialization (8 flaws)</H4>
+<P>Applications should be reluctant to trust variables that have been
+initialized outside of its trust boundary. Untrusted initialization
+refers to instances in which an application allows external control
+of system settings or variables, which can disrupt service or cause
+an application to behave in unexpected ways. For example, if an
+application uses values from the environment, assuming the data
+cannot be tampered with, it may use that data in a dangerous way.</P>
+<P>Compartmentalize the application and determine where the trust
+boundaries exist, then treat any input or control outside the trust
+boundary as potentially hostile. In general, do not allow
+user-provided or otherwise untrusted data to control sensitive
+values.</P>
+<TABLE WIDTH=796 CELLPADDING=2 CELLSPACING=0>
+	<COL WIDTH=133>
+	<COL WIDTH=653>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0.02in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Risk ID</P>
+		</TD>
+		<TD WIDTH=653 STYLE="border: 1px solid #000000; padding: 0.02in">
+			<P>9                    
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Locations</P>
+		</TD>
+		<TD WIDTH=653 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<PRE>ctf-f2014/www/wp-includes/class-phpmailer.php
+ctf-f2014/www/wp-includes/ID3/getid3.lib.php
+ctf-f2014/www/wp-includes/ID3/getid3.php
+ctf-f2014/www/wp-includes/Text/Diff/Engine/shell.php</PRE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Technical Risk</P>
+		</TD>
+		<TD WIDTH=653 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>External Initialization of Trusted Variables or Data Stores:
+			CWE ID 454 (8 Flaws)</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P>Techical Risk Indicators</P>
+		</TD>
+		<TD WIDTH=653 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P>A function is used to process options passed into a command
+			line application. The optarg variable is used to store any
+			additional arguments that an option requires. 
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P><FONT SIZE=3>Impact Rating</FONT></P>
+		</TD>
+		<TD WIDTH=653 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>L</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P><FONT SIZE=3>Impact</FONT></P>
+		</TD>
+		<TD WIDTH=653 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>If optarg is used in an unbounded string copy, an
+			attacker can specify overly long command line arguments and
+			overflow the destination buffer, potentially resulting in
+			execution of arbitrary code.</FONT></P>
+			<P><FONT SIZE=3>Basically, this is only an issue if there's a
+			buffer overflow problem – if strcpy is used in the program and
+			is used on the command line arguments.</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P><FONT SIZE=3>Mitigation</FONT></P>
+		</TD>
+		<TD WIDTH=653 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>Be sure to limit the size of data copied from the
+			optarg variable.</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=133 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: none; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0in">
+			<P><FONT SIZE=3>Validation Steps</FONT></P>
+		</TD>
+		<TD WIDTH=653 STYLE="border-top: none; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding-top: 0in; padding-bottom: 0.02in; padding-left: 0.02in; padding-right: 0.02in">
+			<P><FONT SIZE=3>Attempt to pass in a huge volume of command-line
+			arguments. If the space used by the program doesn't balloon out to
+			a larger amount than usual, you should be safe.</FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<P><BR><BR>
+</P>
+</BODY>
+</HTML>
