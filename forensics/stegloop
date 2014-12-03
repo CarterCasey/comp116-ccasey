@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if test -z "$1"; then
+    echo "Usage: bash stegloop <file>"
+    exit
+fi
+
+for f in wordlists/metasploit/*; do
+    for p in `cat $f`; do
+        if steghide extract -p "$p" -sf "$1" 2>> steg.err >> steg.out; then
+            echo $p >> $1.pass
+        fi
+    done &
+done
+wait
