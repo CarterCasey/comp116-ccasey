@@ -2,7 +2,7 @@ Carter Casey and Macgill Davis
 
 ## Part 1 - Images: ##
 
-After downloading the image files, it was quickly determined that b.jpg was the different image file - using `ls -l`, we can see that the size of that file was smaller than the other two.  
+After downloading the image files, it was quickly determined that b.jpg was the different image file - using `ls -l`, we can see that the size of that file was smaller than the other two. This is backed up with a simple `diff` comparison.  
 Since we were dealing with a jpg file, the data was probably embedded with steghide, we attempted to use the user passwords we had cracked from the disk. Finding that these were unrelated, the next attempt was to brute force using steghide's -p flag and a simple loop over the lines in metasploit's wordlists. I've included the script used to do this, called `stegloop`, in this directory. Note that it loops over the files in parallel, made possible by the shortness of the files used, and the fact that we had access to the multi-core Halligan servers.  
 Cracking the password (which was `disney`) revealed a hidden executable called `runme`. Running `runme` prompted the user to enter their first name as an argument, which simply produced an encouraging message. However, upon further inspection using the `strings` command, it was possible to see that the executable had a deeper functionality. Passing the argument "blinky_the_wonder_chimp" to `runme` prompts the user to email you with a message.
 
