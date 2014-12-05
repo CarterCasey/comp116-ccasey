@@ -69,7 +69,7 @@ void isSecure(char* path)
 {
 	struct stat s;
 	char* file_owner;
-	char* formatted = malloc(PATH_MAX + 6);
+	char* formatted = malloc(PATH_MAX + 7);
 
 	sprintf(formatted, "stat(%s)", path);
 
@@ -92,7 +92,11 @@ void isSecure(char* path)
 
 void exists(char* path)
 {
-	assertSys(access(path, F_OK), "access");
+	char* formatted = malloc(PATH_MAX + 9);
+	sprintf(formatted, "access(%s)", path);
+
+	assertSys(access(path, F_OK), formatted);
+	free(formatted);
 }
 
 void toggleEcho(FILE* stream)
