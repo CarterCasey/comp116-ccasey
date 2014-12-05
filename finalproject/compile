@@ -1,0 +1,10 @@
+# Compiles and links the otpad program
+# when run by a user in the admin group.
+#
+# Author: Carter Casey
+
+FLAGS="-g -O0 -Wall -Wextra -Werror -Wfatal-errors -std=c99"
+
+gcc $FLAGS -o otpad otpad.c \
+&& \
+chmod 700 otpad
