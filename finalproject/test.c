@@ -1,25 +1,17 @@
 #include <sys/types.h>
 #include <sys/stat.h>
+#if ! defined(__APPLE__)
+	#include <shadow.h>
+#endif
+#include <limits.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdio.h>
 
 int main(int argc, char* argv[])
 {
-	if (argc != 2) {
-		fprintf(stderr, "Usage: ./test <file-path>\n");
-		exit(EXIT_FAILURE);
-	}
-
-	struct stat s;
-
-	stat(argv[1], &s);
-
-	printf("%o\n", s.st_mode);
-
-	if (s.st_mode & 0002) {
-		printf("File \"%s\" is writable by all users\n", argv[1]);
-	}
+	if (argc < 3) exit(EXIT_FAILURE);
+	printf("%s\n", crypt(argv[1], argv[2]));
 	
 	return 0;
 }

@@ -1,10 +1,29 @@
 # Compiles and links the otpad program
-# when run by a user in the admin group.
 #
 # Author: Carter Casey
 
-FLAGS="-g -O0 -Wall -Wextra -Werror -Wfatal-errors -std=c99"
+makeSalt() {
+	touch salt.h && chmod 600 salt.h
 
-gcc $FLAGS -o otpad otpad.c \
-&& \
-chmod 700 otpad
+	SALT="_${USER:0:2}${UID:0:2}${$:0:2}"
+	while test ${#SALT} -lt 9; do
+		SALT="$SALT${RANDOM:0:$((9 - ${#SALT}))}"
+	done
+	echo 'const char* SALT = '\"$SALT\"';' >> salt.h
+}
+
+FLAGS="-g -O1 -Wall -Wextra -std=c99"
+
+if [ "$1" = "-d" ]; then
+    FLAGS="$FLAGS -DDEBUG"
+fi
+
+if [ "`uname`" != "Darwin" ]; then
+	LFLAGS="-lcrypt"
+fi
+
+makeSalt
+
+gcc $FLAGS -o otpad otpad.c $LFLAGS && chmod 300 otpad
+
+rm salt.h

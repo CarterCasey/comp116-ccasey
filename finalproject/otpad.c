@@ -1,25 +1,48 @@
 #define __PROGRAM_NAME "otpad"
+#if ! defined(__APPLE__)
+#define _POSIX_C_SOURCE 1
+#define _XOPEN_SOURCE
+#endif
 
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <termios.h>
+#include <stdbool.h>
 #include <limits.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <errno.h>
+#include "salt.h"
 #include <pwd.h>
 
 #define BUFF_FALLBACK 65536
+#define MAX_PAD 0xFFFFFFFFUL
 #define RESPONSE_SIZE 8
 #define ALL_WRITE 0002
+#define READ_SIZE 1024
 #define MAX_PASS 32
 #define MAX_NAME 32
+#define HASH_LEN 20
+#define SALT_LEN 9
 #define ROOT_ID 0
+
+#ifdef DEBUG
+	#define DEBUGOUT(TEXT) \
+		do { \
+			fprintf(stderr, "%s\n", TEXT); \
+		} while(false)
+#else
+	#define DEBUGOUT(TEXT)
+#endif
+
 
 void usage()
 {
-	fprintf(stderr, "Usage: ./otpad [-p <password>] <padfile> <infile> <outfile> \n");
+	fprintf(stderr, "Usage: ./otpad [-p <password>] [-s] ");
+	fprintf(stderr, "<padfile> <infile> <outfile> ||\n");
+	fprintf(stderr, "       ./otpad -n <padfile> <size-KB>\n");
 	exit(EXIT_FAILURE);
 }
 
@@ -69,34 +92,31 @@ void isSecure(char* path)
 {
 	struct stat s;
 	char* file_owner;
-	char* formatted = malloc(PATH_MAX + 7);
 
-	sprintf(formatted, "stat(%s)", path);
+	assertSys(stat(path, &s), path);
 
-	assertSys(stat(path, &s), formatted);
-	
 	uid_t uid = getuid();
 	if (s.st_uid != uid && uid != 0) {
 		getFileOwner(s.st_uid, &file_owner);
-		fprintf(stderr, "Warning: %s\n is owned by %s.\n", path, file_owner);
+		fprintf(stderr, "Warning: %s is owned by %s.\n", path,
+				file_owner);
 		continuePrompt();
 	}
 
 	if (s.st_mode & ALL_WRITE) {
-		fprintf(stderr, "Warning: %s is writable by all users\n", path);
+		fprintf(stderr, "Warning: %s is writable by all users.\n",
+				path);
 		continuePrompt();
 	}
-
-	free(formatted);
 }
 
 void exists(char* path)
 {
-	char* formatted = malloc(PATH_MAX + 9);
-	sprintf(formatted, "access(%s)", path);
-
-	assertSys(access(path, F_OK), formatted);
-	free(formatted);
+	if (! access(path, F_OK)) {
+		fprintf(stderr, "Warning: File %s exists.\n", path);
+		continuePrompt();
+	}
+	errno = 0;
 }
 
 void toggleEcho(FILE* stream)
@@ -105,7 +125,7 @@ void toggleEcho(FILE* stream)
 
 	unsigned long echo = 0;
 	int fd = fileno(stream);
-	
+
 	assertSys(tcgetattr(fd, &old), "tcgetattr");
 
 	new = old;
@@ -125,47 +145,194 @@ void getPassword(char** password_p)
 	printf("Enter password: ");
 
 	toggleEcho(stdin);
-	assertSys(fgets(*password_p, MAX_PASS + 1, stdin) == NULL, "fgets");
+	assertSys(fgets(*password_p, MAX_PASS + 2, stdin) == NULL, "fgets");
 	toggleEcho(stdin);
 	printf("\n");
 
 	pass_len = strlen(*password_p);
-	if ((*password_p)[pass_len - 1] != '\n') {
+	if ((*password_p)[pass_len - 1] == '\n') {
+		(*password_p)[pass_len - 1] = '\0';
+	} else {
 		fprintf(stderr,
-				"Password is too long. It may be at most %d.\n", MAX_PASS);
+			"Error: Password is too long. It may be at most %d.\n",
+			MAX_PASS);
+		exit(EXIT_FAILURE);
 	}
+}
+
+void transfer(char* from_name, char* to_name, size_t amount)
+{
+	FILE* from = fopen(from_name, "r");
+	FILE* to = fopen(to_name, "w");
+
+	char* buffer = malloc(READ_SIZE);
+
+	for (size_t i = 0; i < amount; i++) {
+		fread(buffer, 1, READ_SIZE, from);
+		fwrite(buffer, 1, READ_SIZE, to);
+	}
+
+	free(buffer);
+}
+
+void newPad(char* pad_name, char* size_str)
+{
+	char* end;
+	size_t pad_size = strtoul(size_str, &end, 10);
+
+	if (end == size_str || *end != '\0') {
+		fprintf(stderr,
+			"Error: %s is not a valid pad size.\n", size_str);
+		exit(EXIT_FAILURE);
+	} else if (pad_size > MAX_PAD) {
+		fprintf(stderr,
+			"Error: Pad size %lu too large; maximum is %lu\n",
+				pad_size, MAX_PAD);
+		exit(EXIT_FAILURE);
+	}
+
+	exists(pad_name);
+
+	transfer("/dev/urandom", pad_name, pad_size);
+}
+
+off_t fileSize(char* file_name)
+{
+	struct stat file_status;
+	assertSys(stat(file_name, &file_status), file_name);
+
+	return file_status.st_size;
+}
+
+char* makeHashPad(char* pass)
+{
+	char* salt = malloc(SALT_LEN + 1);
+	char* hash_pad = malloc(READ_SIZE + 1);
+	salt[0] = '_';
+	for (int i = 1; i < 5; i++) {
+		salt[i] = SALT[i + 4];
+		salt[9 - i] = SALT[i];
+	}
+
+	char* hash = crypt(crypt(pass, salt), salt);
+
+	for (int i = 0; i < READ_SIZE / HASH_LEN; i++) {
+		strncat(hash_pad, hash, HASH_LEN);
+		hash = crypt(crypt(hash, salt), salt);
+	}
+	strncat(hash_pad, hash, READ_SIZE % HASH_LEN);
+
+	free(salt);
+	return hash_pad;
+}
+
+void xor(char** buffer_p, char* a, char* b, size_t len)
+{
+	for (size_t i = 0; i < len; i++) {
+		(*buffer_p)[i] = a[i] ^ b[i];
+	}
+}
+
+void xorTransfer(FILE* pad, FILE* in, FILE* out, char* pass, off_t len)
+{
+	size_t rd_len = 0;
+	char* in_buffer = malloc(READ_SIZE + 1);
+	char* pad_buffer = malloc(READ_SIZE + 1);
+
+	char* hash_pad = makeHashPad(pass);
+
+	for (int i = 0; i < len / READ_SIZE + 1;) {
+		rd_len = (READ_SIZE * ++i < len) ? READ_SIZE : len % READ_SIZE;
+		assertSys(fread(in_buffer, 1, rd_len, in) != rd_len,
+			 "fread(in-file)");
+		xor(&in_buffer, hash_pad, in_buffer, rd_len);
+		assertSys(fread(pad_buffer, 1, rd_len, pad) != rd_len,
+			 "fread(pad-file)");
+		xor(&pad_buffer, in_buffer, pad_buffer, rd_len);
+		fwrite(pad_buffer, 1, rd_len, out);
+	}
+
+	free(hash_pad);
+	free(in_buffer);
+	free(pad_buffer);
+}
+
+void padCrypt(char* pad_name, char* in_name, char* out_name, char* pass)
+{
+	off_t pad_size = fileSize(pad_name);
+	off_t in_size  = fileSize(in_name);
+
+	if (pad_size == 0) {
+		fprintf(stderr, "Error: Pad %s is empty.\n", pad_name);
+		fprintf(stderr, "Use -n to make a new pad.\n");
+		exit(EXIT_FAILURE);
+	} else if (pad_size < in_size) {
+		fprintf(stderr, "Error: Pad %s is smaller than file %s\n",
+				pad_name, in_name);
+		exit(EXIT_FAILURE);
+	}
+
+	FILE* pad = fopen(pad_name, "r");
+	FILE* in  = fopen(in_name,  "r");
+	FILE* out = fopen(out_name, "w");
+
+	xorTransfer(pad, in, out, pass, in_size);
 }
 
 int main(int argc, char* argv[])
 {
-	char* password = malloc(MAX_PASS + 1);
+	errno = 0;
+
 	char* pad_name = NULL;
 	char* infile_name = NULL;
 	char* outfile_name = NULL;
-	int   start_index = 1;
+	char** names[] = {&pad_name, &infile_name, &outfile_name};
+	int name_index = 0;
 
-	if (argc > 5 || argc < 4) {
+	bool safe_mode = false;
+
+	char* password = malloc(MAX_PASS + 1);
+	password[0] = '\0';
+
+	if (argc == 4 && (! strcmp(argv[1], "-n"))) {
+		newPad(argv[2], argv[3]);
+		exit(EXIT_SUCCESS);
+	} else if (argc > 7) {
+		fprintf(stderr, "Error: Too many arguments\n");
+		usage();
+	} else if (argc < 4) {
+		fprintf(stderr, "Error: Too few arguments.\n");
 		usage();
 	}
 
-	for (int i = 2; i < argc - 1; i++) {
+	for (int i = 1; i < argc; i++) {
 		if (! strcmp(argv[i], "-p")) {
-			usage();
+			if (argv[++i][0] == '\0') {
+				fprintf(stderr,
+					"Error: Password may not start with '\\0'.\n");
+				exit(EXIT_FAILURE);
+			}
+			strncpy(password, argv[i], MAX_PASS + 1);
+		} else if (! strcmp(argv[i], "-s")) {
+			safe_mode = true;
+		} else {
+			*(names[name_index++]) = argv[i];
 		}
 	}
 
-	if (! strcmp(argv[1], "-p")) {
-		free(password);
-		password = argv[2];
-		start_index = 3;
-	} else {
+	if (password[0] == '\0') {
 		getPassword(&password);
 	}
 
-	isSecure(pad_name = argv[start_index]);
-	isSecure(infile_name = argv[start_index + 1]);
-	exists(outfile_name = argv[start_index + 2]);
+	if (safe_mode) {
+		isSecure(pad_name);
+		isSecure(infile_name);
+		exists(outfile_name);
+	}
 
+	padCrypt(pad_name, infile_name, outfile_name, password);
+
+	free(password);
 	return 0;
 }
 
