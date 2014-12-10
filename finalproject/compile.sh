@@ -2,15 +2,7 @@
 #
 # Author: Carter Casey
 
-makeSalt() {
-	touch salt.h && chmod 600 salt.h
-
-	SALT="_${USER:0:2}${UID:0:2}${$:0:2}"
-	while test ${#SALT} -lt 9; do
-		SALT="$SALT${RANDOM:0:$((9 - ${#SALT}))}"
-	done
-	echo 'const char* SALT = '\"$SALT\"';' >> salt.h
-}
+source utils.sh
 
 FLAGS="-g -O1 -Wall -Wextra -std=c99"
 
@@ -22,8 +14,12 @@ if [ "`uname`" != "Darwin" ]; then
 	LFLAGS="-lcrypt"
 fi
 
-makeSalt
+if [ ! -f salt.h ]; then
+	echo "Creating salt file. Salt is unique to each user."
+	echo "Recompiling as a different user will produce a different encryption."
+	touch salt.h && chmod 600 salt.h
+	echo 'const char* SALT = '\"`makeSalt\"';' >> salt.h
+fi
 
 gcc $FLAGS -o otpad otpad.c $LFLAGS && chmod 300 otpad
 
-rm salt.h
