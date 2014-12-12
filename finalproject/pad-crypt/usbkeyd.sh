@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source utils.sh
+source ~/.pad_crypt/utils.sh
 
 # Prints the names of all locally mounted disks
 diskNames () {
@@ -38,9 +38,10 @@ diskRemoved () {
 		target_dir=`echo $pair | cut -d: -f2`
 
 		if [ "$disk" = $old_disk ]; then
-			for f in `tail n +2 $target_dir/.crypt-dir`; do
-				rm -f $target_dir/$f
-			done
+			# not yet implemented
+			# for f in `tail n +2 $target_dir/.clean-list`; do
+			# 	rm -f $target_dir/$f
+			# done
 			return 0
 		fi
 	done 
@@ -51,9 +52,6 @@ disks=""
 
 while true; do
 	updated_disks=`diskNames`
-
-	# echo $updated_disks
-	# echo $paths
 
 	if [ "$disks" != "$updated_disks" ]; then
 		for d in $disks; do

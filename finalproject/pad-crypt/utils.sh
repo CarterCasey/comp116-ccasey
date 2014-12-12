@@ -36,7 +36,7 @@ decrypt () {
 		if isPcrypt "$f"; then
 			plain=`echo "$f" | sed -e "s/\.pcrypt$//"`
 			if [ ! -f "$plain" ]; then
-				yes | otpad -p `makeSalt` "$disk"/.pad "$f" "$plain" 2> /dev/null
+				yes | otpad -p "`makeSalt`" "$disk"/.pad "$f" "$plain" 2> /dev/null
 			fi
 		fi
 	done

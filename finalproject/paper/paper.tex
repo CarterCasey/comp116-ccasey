@@ -22,7 +22,7 @@
 \affiliation{Mentor: Ming Chow \\ Tufts University Department of Computer Science}
 
 \abstract{\doublespacing Password security, which may be the most common security tool a person interacts with on a daily basis, is flawed. In this paper I discuss some of their flaws - while some of the problems come from how passwords work in the first place, a majority arise because humans aren't good at using passwords securely and effectively.
-I then approach some of the alternatives to passwords that have gained popularity over the past couple years: biometrics, multi-factor authentication, and smart cards. The advantages of using these techniques are again tempered by a mix of software and human flaws.
+I then approach some of the alternatives to passwords that have gained popularity over the past couple years: physical password keys (such as smart cards), biometrics, multi-factor authentication. The advantages of using these techniques are again tempered by a mix of software and human flaws.
 I also provide software that can create a (very basic) usb key to encrypt and decrypt sensitive files on a user's machine.
 It seems that while we should use better and stronger techniques of protecting our data, we also need to improve people's understanding and appreciation of security.
 }
@@ -60,16 +60,28 @@ A study found that 21\% of users "don't think it's necessary to change account p
 
 \subsection{Password Alternatives}
 
+\subsubsection{Physical Password Keys}
+This tool is being implemented with growing popularity: the idea is to only let a user access their account when a physical key, whether in the form of a usb drive or a smart card, is attached to the computer. One of the more recent companies to try using this method of authentication is Google. They have announced a simple usb key that fits on your keychain; when logging in to any google account, the user is prompted to press the button, and is automatically authenticated \parencite{simon14}. They're not the first to try something like this, but given the reach of google's services, they're likely the organization with the broadest reach, not to mention very strong tech credentials.
+
+The upside to a physical key is, of course, that an attacker can't get to the key without access to your local machine, or to the key itself. This is an ideal protection from scanning attacks, and it saves the user from dealing with yet another complicated password. The downside, of course, is that stealing the key is tantamount to stealing the password, and much easier for a thief with close access to the victim. If they could steal a key to your house, or your wallet, they could steal the password key as well.
+
+To supplement this paper, I've implemented the software that (should) create a simple usb key for encrypting and decrypting files. After the scripts are up and running, whenever the usb drive is inserted, the encrypted files will be decrypted into their readable counterparts. Upon the ejection of the drive, the same files should be removed from the designated folder, leaving only unreadable files encrypted with what's known as a one-time pad. The scripts and code are a proof-of-concept, to be sure, but serve to demonstrate the method behind password key technology. The files are included in my Security github account, at \usb{https://github.com/tuftsdev/comp116-ccasey/tree/master/finalproject/pad-crypt}.
+
 \subsubsection{Biometrics}
+The concept of biometrics is simple - use measurements of the user's body to verify their identity. The obvious example is fingerprint scanning: everyone has a unique fingerprints, so if another person picks up your device and tries to unlock it, they shouldn't be able to. What's more, fingerprints come pre-packeged. We all have them (barring unfortunate accidents and the like), so there's nothing to think about and remember - just swipe and go. The more recent versions of Apple and Samsung mobile devices even have built-in fingerprint scanners, so we know that it can be implemented on a wide scale. So far, the idea doesn't sound like a bad one.
+
+Unfortunately, there's more to the story. Fingerprints aren't a "secret" - passwords are (generally) kept hidden from the outside world, whereas anyone can pick up a person's fingerprint with a couple of low tech tools. This would be an issue if a thief stole your fingerprint-locked phone as well as something with a surface prone to collecting fingerprints; with certain phone screens, those are one and the same. After getting your fingerprint, there are methods in place that can fool biometric scans - researchers in Germany have already shown that one of Samsung's phones can be fooled. \parencite{eadic14}
+
+So there's a trade-off. Relying on biometrics - at least fingerprints - to protect physical devices does have some downsides. They aren't foolproof, and their use is somewhat limited. Perhaps the place for biometrics is to supplement other protection tools. A semi-strong password and a fingerprint may not amount to a whole lot on their own, but together, couldn't they provide more protection? This is actually the premise of multi-factor authentication.
 
 \subsubsection{Multi-Factor Authentication}
+If passwords aren't going to cut it, why don't we add something? Reinforce the passwords with an extra check, to make doubly sure the user is actually who they say they are. In two-factor authentication, this is typically done by having users enter their password, then refer to another device or site to get a passcode that must be entered into the login screen. This could easily be further supplemented by, as I mentioned before, biometrics, giving us what could be a very secure three-factor authentication. There are even alternative schemes out there; PassFaces asks users to remember a series of faces they have to pick out of a group of pictures when they log in to their accounts \parencite{tanaka12}.
 
-\subsubsection{Smart Card}
+While any one of these methods might not be very powerful on their own, multiple tools give users strong redundancy. Even if your password is cracked, if the attacker doesn't have your phone or access to the passcode server, they can't get into your account. Likewise, stealing a phone doesn't give the attacker much without a password, which takes time to get. It's clearly possible to get break multi-factor authentication, since we know how to break all the pieces, but the goal isn't impervious defences. The goal is making the defences hard enough to breach that an attacker will need so much time and energy they won't find it worthwhile.
 
+There is one potential downside to multi-factor authentication, though not from a security perspective. It's just more cumbersome to use. Perhaps a person who is educated in the field of security, or one who has been the victim of a digital attack (such as identity theft), wouldn't find the effort too much. However, many people find the simple act of typing in one password to be annoying, let alone typing in a password, waiting for a text, then typing that in. Multi-factor authentication has great potential to improve general security, but only if people actually use it. While we've convinced most people to use passwords, it may take some effort to get those same people to take the next, more secure step.
 
-
-
-
+\section{Conclusion}
 
 \printbibliography
 
