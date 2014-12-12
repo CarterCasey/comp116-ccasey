@@ -1,0 +1,39 @@
+\documentclass[12pt]{apa6}
+
+\usepackage[american]{babel}
+
+\usepackage{csquotes}
+\usepackage[style=apa,sortcites=true,sorting=nyt,backend=biber]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+
+\addbibresource{paper.bib}
+
+\title{Passwords and their alternatives: How we should (and do) try to secure our data, and why it isn't working. Yet.}
+\shorttitle{Password Alternatives}
+
+\author{Carter Casey}
+\leftheader{Casey}
+\affiliation{Mentor: Ming Chow \\ Tufts University Department of Computer Science}
+
+\abstract{Password security, which may be the most common security tool a person interacts with on a daily basis, is flawed. In this paper I discuss some of their flaws - while some of the problems come from how passwords work in the first place, a majority arise because humans aren't good at using passwords securely and effectively.
+I then approach some of the alternatives to passwords that have gained popularity over the past couple years: biometrics, multi-factor authentication, and smart cards. The advantages of using these techniques are again tempered by a mix of software and human flaws.
+I also provide software that can create a (very basic) usb key to encrypt and decrypt sensitive files on a user's machine.
+It seems that while we should use better and stronger techniques of protecting our data, we also need to improve people's understanding and appreciation of security.
+}
+
+\begin{document}
+\maketitle
+% Introduction
+With technology deeply engrained in human life, the way we secure our digital property has risen to a level of importance comparable to protecting our physical property. A break-in can be less devastating than identity theft; bank robberies don't have to happen with a gun and mask anymore, and often a keyboard, internet connection, and technical know-how are plenty to pull a major heist. To keep ourselves safe, many people and digital systems use password protection. The vast use of passwords makes them arguably the most common security tool used by anyone on the internet.
+
+However, password protection techniques haven't kept up with advancing technology. Despite being used so frequently, passwords are an old idea. The MIT manual makes reference to a "six character secret password" used on the accounts of their Compatible Time-Sharing System back in the 60s \parencite{mit65}. Since then we've started encrypting our passwords for internal storage with stronger and stronger algorithms, but not much else has changed. On the other hand, our understanding of how to crack passwords has grown phenomenally in that time. There need to be better ways to combat attackers who would gladly take advantage of those vulnerabilities.
+
+This problem is well recognized in the tech and security communities, and consequently there are many attempts at creating secure alternatives to using passwords. These include biometric verification, typically in the form of fingerprint scanners, as well as multi-factor authentication and smart card verification. The proponents of these methods claim that each one is stronger than password protection schemes used today. There are, indeed, advantages to these password alternatives, one of the more obvious being that they \textit{aren't passwords}, and attackers don't have the depth of tools with which to crack them.
+
+To demonstrate how a simple password alternative might work, I've put together a proof-of-concept smart "card." Given the right software and a big enough usb drive, it should lock and unlock certain files when attached to and ejected from a computer.
+
+On the other hand, there are disadvantages to using password alternatives, not the least of which being their usability. People are often uninterested in proper data security. In fact, that may be the core problem we face when trying to secure data. Even though more people claim to be aware of the risks and best practices to use when using the internet and computer systems, a much smaller proportion actually put these practices to use \parencite{mcafee}.
+
+\printbibliography
+
+\end{document}

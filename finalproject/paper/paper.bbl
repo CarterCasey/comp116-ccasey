@@ -1,0 +1,103 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{entry}{nyt}
+    \entry{ives04}{article}{}
+      \name{labelname}{2}{}{%
+        {{uniquename=0,hash=97b21a6e10c24e573cd608b1a5618eba}{Blake\bibnamedelima Ives}{B\bibinitperiod\bibinitdelim I\bibinitperiod}{Kenneth\bibnamedelimb R.\bibnamedelimi Walsh}{K\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=37efe341927030865521f3587def955e}{Schneider}{S\bibinitperiod}{Helmut}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=97b21a6e10c24e573cd608b1a5618eba}{Blake\bibnamedelima Ives}{B\bibinitperiod\bibinitdelim I\bibinitperiod}{Kenneth\bibnamedelimb R.\bibnamedelimi Walsh}{K\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=37efe341927030865521f3587def955e}{Schneider}{S\bibinitperiod}{Helmut}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{ab3c7e6aa10b4b40e803e03671e128bf}
+      \strng{fullhash}{ab3c7e6aa10b4b40e803e03671e128bf}
+      \field{sortinit}{B}
+      \field{labelyear}{2004}
+      \field{labelmonth}{04}
+      \field{datelabelsource}{year}
+      \field{labeltitle}{The Domino Effect of Password Reuse}
+      \field{journaltitle}{Communications of the ACM}
+      \field{month}{04}
+      \field{number}{4}
+      \field{title}{The Domino Effect of Password Reuse}
+      \field{volume}{47}
+      \field{year}{2004}
+    \endentry
+    \entry{mit65}{manual}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=294f19428c9d5c376b3cc9759ba3380b}{Crisman}{C\bibinitperiod}{P.\bibnamedelimi A.}{P\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{uniquename=0,hash=294f19428c9d5c376b3cc9759ba3380b}{Crisman}{C\bibinitperiod}{P.\bibnamedelimi A.}{P\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {The M.I.T. Press}%
+      }
+      \strng{namehash}{294f19428c9d5c376b3cc9759ba3380b}
+      \strng{fullhash}{294f19428c9d5c376b3cc9759ba3380b}
+      \field{sortinit}{C}
+      \field{labelyear}{1965}
+      \field{datelabelsource}{year}
+      \field{labeltitle}{The Compatible Time-Sharing System: A Programmer's Guide}
+      \field{title}{The Compatible Time-Sharing System: A Programmer's Guide}
+      \field{year}{1965}
+    \endentry
+    \entry{floren07}{article}{}
+      \name{labelname}{2}{}{%
+        {{uniquename=0,hash=6c2e0327abbc10ed65f68d90762db88e}{Florencio}{F\bibinitperiod}{Dinei}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=138a45a91746ad040fab227f39318c37}{Herley}{H\bibinitperiod}{Cormac}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=6c2e0327abbc10ed65f68d90762db88e}{Florencio}{F\bibinitperiod}{Dinei}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=138a45a91746ad040fab227f39318c37}{Herley}{H\bibinitperiod}{Cormac}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Microsoft Research}%
+      }
+      \strng{namehash}{af5bba495c7b421425e7f134e53d32c8}
+      \strng{fullhash}{af5bba495c7b421425e7f134e53d32c8}
+      \field{sortinit}{F}
+      \field{labelyear}{2007}
+      \field{datelabelsource}{year}
+      \field{labeltitle}{A Large-Scale Study of Web Password Habits}
+      \field{journaltitle}{Microsoft Research}
+      \field{title}{A Large-Scale Study of Web Password Habits}
+      \field{year}{2007}
+    \endentry
+    \entry{mcafee11}{report}{}
+      \list{institution}{1}{%
+        {National Cyber Cecurity Alliance / McAfee / Zogby Int'l}%
+      }
+      \field{sortinit}{M}
+      \field{labelyear}{2011}
+      \field{labelmonth}{10}
+      \field{datelabelsource}{year}
+      \field{labeltitle}{McAfee Internet Home Users Survey}
+      \field{month}{10}
+      \field{title}{McAfee Internet Home Users Survey}
+      \field{type}{techreport}
+      \field{year}{2011}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

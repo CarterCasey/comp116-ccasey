@@ -1,3 +1,4 @@
+#!/bin/bash
 # Compiles and links the otpad program
 #
 # Author: Carter Casey
@@ -15,11 +16,12 @@ if [ "`uname`" != "Darwin" ]; then
 fi
 
 if [ ! -f salt.h ]; then
-	echo "Creating salt file. Salt is unique to each user."
+	echo -n "Creating salt file. Salt is unique to each user. "
 	echo "Recompiling as a different user will produce a different encryption."
 	touch salt.h && chmod 600 salt.h
-	echo 'const char* SALT = '\"`makeSalt\"';' >> salt.h
+	echo 'const char* SALT = '\"`makeSalt`\"';' >> salt.h
 fi
 
-gcc $FLAGS -o otpad otpad.c $LFLAGS && chmod 300 otpad
+gcc $FLAGS -o otpad otpad.c $LFLAGS && chmod 700 otpad
+
 

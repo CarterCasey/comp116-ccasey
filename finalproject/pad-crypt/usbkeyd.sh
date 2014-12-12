@@ -10,7 +10,11 @@ diskNames () {
 hasSalt() {
 	disk=$1
 	salt=`makeSalt`
-	return [[ -f $d/."$salt" ]]
+	if [ -f $d/."$salt" ]; then
+		return 0
+	else
+		return 1
+	fi
 }
 
 cleanPaths () {
@@ -26,13 +30,6 @@ cleanPaths () {
 	echo "new_paths"
 }
 
-diskAdded () {
-	disk="$1"
-	for cryptdir in `find "$disk" -name ".pad" | sed -e "s/\.pad$//"`; do
-		decrypt $cryptdir
-	done
-}
-
 diskRemoved () {
 	disk="$1"
 	paths="$2"
@@ -41,7 +38,7 @@ diskRemoved () {
 		target_dir=`echo $pair | cut -d: -f2`
 
 		if [ "$disk" = $old_disk ]; then
-			for f in `tail n +2 $target_dir/.crypt-config`; do
+			for f in `tail n +2 $target_dir/.crypt-dir`; do
 				rm -f $target_dir/$f
 			done
 			return 0
@@ -55,6 +52,9 @@ disks=""
 while true; do
 	updated_disks=`diskNames`
 
+	# echo $updated_disks
+	# echo $paths
+
 	if [ "$disks" != "$updated_disks" ]; then
 		for d in $disks; do
 			# if disk from old list not in new
@@ -66,8 +66,9 @@ while true; do
 
 		for d in $updated_disks; do
 			# if disk from new list not in old
-			if hasSalt $d && echo $disks | grep -qv "$d"; then
-				paths="$paths $d:`diskAdded $d`"
+			if hasSalt $d && ! echo $disks | grep -qe "$d"; then
+				new_path=`decrypt "$d"`
+				paths="$paths $d:$new_path"
 			fi
 		done
 

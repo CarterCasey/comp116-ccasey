@@ -10,24 +10,30 @@ Outline:
 
 
 References:
+	MIT CTSS Programmer's Guide, 1965
+		https://archive.org/stream/bitsavers_mitctssCTSc69_26767392/CTSS_ProgrammersGuide_Dec69_djvu.txt
+	New Survey Shows Sizable Gap Between Americans’ Online Security Perceptions and Actual Practices
+		http://identitytheftnetwork.org/687/new-survey-shows-sizable-gap-between-americans-online-security-perceptions-and-actual-practices
+	FBI Director: Cyber Attacks Could Be Bigger Threat Than Terrorism
+		http://www.pcmag.com/article2/0,2817,2401083,00.asp
 	The Domino Effect of Password Reuse
 		http://delivery.acm.org.ezproxy.library.tufts.edu/10.1145/980000/975820/p75-ives.pdf?ip=130.64.11.153&id=975820&acc=ACTIVE%20SERVICE&key=AA86BE8B6928DDC7%2E4579F4D1C4C67060%2E4D4702B0C3E38B35%2E4D4702B0C3E38B35&CFID=447388812&CFTOKEN=95751104&__acm__=1414265194_357bb16c4747afa5e2f7a97315684918
+	Password Memorability and Security: Empirical Results
+		http://homepages.cs.ncl.ac.uk/jeff.yan/jyan_ieee_pwd.pdf
+	A Large-Scale Study of Web Password Habits
+		http://research.microsoft.com/pubs/74164/www2007.pdf
+	55% of net users use the same password for most, if not all, websites. When will they learn?
+		https://nakedsecurity.sophos.com/2013/04/23/users-same-password-most-websites/
 	A Physical Key to Your Google Account
 		http://www.technologyreview.com/news/531926/a-physical-key-to-your-google-account/
 	Replacing the password: More secure high-tech alternatives to traditional alphanumerics
 		https://www.patexia.com/feed/replacing-the-password-more-secure-high-tech-alternatives-to-traditional-alphanumerics-3404
 	Passwords Are A Horrible Way To Keep Us Safe — Here Are The Potential Alternatives
 		http://www.businessinsider.com/password-alternatives-2014-5
-	New Survey Shows Sizable Gap Between Americans’ Online Security Perceptions and Actual Practices
-		http://identitytheftnetwork.org/687/new-survey-shows-sizable-gap-between-americans-online-security-perceptions-and-actual-practices
-	FBI Director: Cyber Attacks Could Be Bigger Threat Than Terrorism
-		http://www.pcmag.com/article2/0,2817,2401083,00.asp
 	FBI Can’t Crack Android Pattern-Screen Lock
 		http://www.wired.com/2012/03/fbi-android-phone-lock/
 	A Survey on Password Security Systems
 		http://www.ijecse.org/wp-content/uploads/2013/03/Volume-2Number-2PP-546-548x.pdf
-	Password Memorability and Security: Empirical Results
-		http://homepages.cs.ncl.ac.uk/jeff.yan/jyan_ieee_pwd.pdf
 
 
 Supporting Material:
