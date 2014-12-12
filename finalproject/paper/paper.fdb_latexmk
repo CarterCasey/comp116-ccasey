@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber paper"] 1418331090 "paper.bcf" "paper.bbl" "paper" 1418331098
-  "paper.bcf" 1418331098 96461 4b45c03c100d35419ea110e23205735b ""
-  "paper.bib" 1418329902 999 a1df523c0c2200755ee0bf7d517eeed4 ""
+["biber paper"] 1418400776 "paper.bcf" "paper.bbl" "paper" 1418406460
+  "paper.bcf" 1418401082 96658 1c1c7da9fc6e43b18cb7143c69d14ed8 ""
+  "paper.bib" 1418365652 1531 91b39241ddcef5c14cdb8d3682d659b5 ""
   (generated)
-  "paper.blg"
   "paper.bbl"
-["pdflatex"] 1418331096 "paper.tex" "paper.pdf" "paper" 1418331098
+  "paper.blg"
+["pdflatex"] 1418401080 "paper.tex" "paper.pdf" "paper" 1418406460
   "/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/babel-english/english.ldf" 1367878877 6963 2e0cb3d93aa64508bdb0db58ae900d97 ""
   "/usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.def" 1395780385 49536 e1475dd245ff2196764ba5b91ac63714 ""
@@ -23,7 +23,7 @@
   "/usr/local/texlive/2014/texmf-dist/tex/latex/base/article.cls" 1399675188 20496 66dd832c447553f6776fbeac03bb0580 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/base/fontenc.sty" 1399675188 4360 ff7a73ddc57baaf1815161c4698e9fb4 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/base/ifthen.sty" 1399675188 4947 22c4b902063e8ce2efcc2a8495ecb800 ""
-  "/usr/local/texlive/2014/texmf-dist/tex/latex/base/size12.clo" 1399675188 8978 ae5f64dacfe4ff1b713dec8fd98fb590 ""
+  "/usr/local/texlive/2014/texmf-dist/tex/latex/base/size10.clo" 1399675188 8967 546f1b177fd18efd7ad74d77a7bdac64 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1enc.def" 1399675188 9097 3d740f5a942bdde0d974eb1398aae41c ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/biblatex-apa/american-apa.lbx" 1383000250 4965 f766da42dd65bfc748aeb2d4acbaf06f ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/biblatex-apa/apa.bbx" 1397773173 64152 9c0144777062afe73f5e9de1a549d2f8 ""
@@ -90,12 +90,12 @@
   "/usr/local/texlive/2014/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/xcolor/svgnam.def" 1169481954 4620 468295cf46978ca3a0d4af0c469edc7e ""
   "/usr/local/texlive/2014/texmf-dist/tex/latex/xcolor/xcolor.sty" 1169481954 55224 a43bab84e0ac5e6efcaf9a98bde73a94 ""
-  "paper.aux" 1418331098 2489 7def5f15e8c6567ad5d765399ee0b086 ""
-  "paper.bbl" 1418331093 4394 67e19d2f3f94cfcaac12c5f1535636a8 "biber paper"
-  "paper.out" 1418331098 303 43833abd198d4960001ae0cfc4be965a ""
-  "paper.tex" 1418331079 8909 83a2e7862876f7c6b57e900d20b28ebb ""
+  "paper.aux" 1418401082 3312 74824e154a43035ecaca61493076f093 ""
+  "paper.bbl" 1418400781 8295 13d51c394f954af6603064843957e98d "biber paper"
+  "paper.out" 1418401082 492 eb3e6aef6349de9d12c36b7ea5a6a6ec ""
+  "paper.tex" 1418406459 16020 edb223ec8e9024096927c70f94623a95 ""
   (generated)
-  "paper.out"
+  "paper.aux"
   "paper.pdf"
   "paper.log"
-  "paper.aux"
+  "paper.out"

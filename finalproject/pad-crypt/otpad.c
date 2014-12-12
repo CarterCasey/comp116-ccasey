@@ -21,7 +21,7 @@
 #define MAX_PAD 0xFFFFFFFFUL
 #define RESPONSE_SIZE 8
 #define ALL_WRITE 0002
-#define READ_SIZE 1024
+#define READ_SIZE 128
 #define MAX_PASS 32
 #define MAX_NAME 32
 #define HASH_LEN 20

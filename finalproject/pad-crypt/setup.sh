@@ -17,16 +17,16 @@ if [ "$1" != "-n" ]; then
 		fi
 	elif [ -f "$HOME/.bashrc" ]; then
 		if ! cat ~/.bashrc | grep -qe 'source ~/.profile'; then
-			echo 'source ~/.profile' >> ~/.bash_profile
+			echo 'source ~/.profile > /dev/null' >> ~/.bash_profile
 		fi
 	fi
 
 	touch ~/.profile
 	if ! cat ~/.profile | grep -qe 'PATH='; then
-		echo PATH="$PATH:~/.pad_crypt/bin" >> ~/.profile
+		echo 'PATH=$PATH:~/.pad_crypt/bin' >> ~/.profile
 	fi
 	if ! cat ~/.profile | grep -qe 'usbkeyd'; then
-		echo 'if [ `ps aux | grep bin/usbkeyd | wc -l` -le 1 ]; then (nohup usbkeyd 0<&- &>/dev/null &) & fi' >> ~/.profile
+		echo 'if [ `ps aux | grep usbkeyd | wc -l` -le 1 ]; then (nohup usbkeyd 0<&- &>/dev/null &) & fi' >> ~/.profile
 	fi
 
 	if [ ! -d "$HOME/.pad_crypt" ]; then

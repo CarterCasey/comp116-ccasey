@@ -1,0 +1,187 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{entry}{nyt}
+    \entry{adams99}{article}{}
+      \name{labelname}{2}{}{%
+        {{uniquename=0,hash=e00502065b6c1c65e252c6857c68ef15}{Adams}{A\bibinitperiod}{Anne}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a424a125eabf8c38324e8906b0471ea7}{Sasse}{S\bibinitperiod}{Martina\bibnamedelima Angela}{M\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=e00502065b6c1c65e252c6857c68ef15}{Adams}{A\bibinitperiod}{Anne}{A\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=a424a125eabf8c38324e8906b0471ea7}{Sasse}{S\bibinitperiod}{Martina\bibnamedelima Angela}{M\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{76abea971248117e75b5ef39569b3caf}
+      \strng{fullhash}{76abea971248117e75b5ef39569b3caf}
+      \field{sortinit}{A}
+      \field{labelyear}{1999}
+      \field{labelmonth}{12}
+      \field{datelabelsource}{year}
+      \field{labeltitle}{Users are not the Enemy}
+      \field{journaltitle}{Communications of the ACM}
+      \field{month}{12}
+      \field{number}{12}
+      \field{title}{Users are not the Enemy}
+      \field{volume}{42}
+      \field{year}{1999}
+    \endentry
+    \entry{ives04}{article}{}
+      \name{labelname}{2}{}{%
+        {{uniquename=0,hash=97b21a6e10c24e573cd608b1a5618eba}{Blake\bibnamedelima Ives}{B\bibinitperiod\bibinitdelim I\bibinitperiod}{Kenneth\bibnamedelimb R.\bibnamedelimi Walsh}{K\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=37efe341927030865521f3587def955e}{Schneider}{S\bibinitperiod}{Helmut}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=97b21a6e10c24e573cd608b1a5618eba}{Blake\bibnamedelima Ives}{B\bibinitperiod\bibinitdelim I\bibinitperiod}{Kenneth\bibnamedelimb R.\bibnamedelimi Walsh}{K\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=37efe341927030865521f3587def955e}{Schneider}{S\bibinitperiod}{Helmut}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{ab3c7e6aa10b4b40e803e03671e128bf}
+      \strng{fullhash}{ab3c7e6aa10b4b40e803e03671e128bf}
+      \field{sortinit}{B}
+      \field{labelyear}{2004}
+      \field{labelmonth}{04}
+      \field{datelabelsource}{year}
+      \field{labeltitle}{The Domino Effect of Password Reuse}
+      \field{journaltitle}{Communications of the ACM}
+      \field{month}{04}
+      \field{number}{4}
+      \field{title}{The Domino Effect of Password Reuse}
+      \field{volume}{47}
+      \field{year}{2004}
+    \endentry
+    \entry{mit65}{manual}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=294f19428c9d5c376b3cc9759ba3380b}{Crisman}{C\bibinitperiod}{P.\bibnamedelimi A.}{P\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{editor}{1}{}{%
+        {{uniquename=0,hash=294f19428c9d5c376b3cc9759ba3380b}{Crisman}{C\bibinitperiod}{P.\bibnamedelimi A.}{P\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {The M.I.T. Press}%
+      }
+      \strng{namehash}{294f19428c9d5c376b3cc9759ba3380b}
+      \strng{fullhash}{294f19428c9d5c376b3cc9759ba3380b}
+      \field{sortinit}{C}
+      \field{labelyear}{1965}
+      \field{datelabelsource}{year}
+      \field{labeltitle}{The Compatible Time-Sharing System: A Programmer's Guide}
+      \field{title}{The Compatible Time-Sharing System: A Programmer's Guide}
+      \field{year}{1965}
+    \endentry
+    \entry{eadic14}{article}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=78b60bf5b2f04ed77e346fbace8a3d19}{Eadicicco}{E\bibinitperiod}{Lisa}{L\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=78b60bf5b2f04ed77e346fbace8a3d19}{Eadicicco}{E\bibinitperiod}{Lisa}{L\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{78b60bf5b2f04ed77e346fbace8a3d19}
+      \strng{fullhash}{78b60bf5b2f04ed77e346fbace8a3d19}
+      \field{sortinit}{E}
+      \field{labelyear}{2014}
+      \field{labelmonth}{05}
+      \field{labelday}{11}
+      \field{datelabelsource}{year}
+      \field{labeltitle}{Passwords Are A Horrible Way To Keep Us Safe}
+      \field{day}{11}
+      \field{journaltitle}{The Business Insider}
+      \field{month}{05}
+      \field{title}{Passwords Are A Horrible Way To Keep Us Safe}
+      \field{year}{2014}
+    \endentry
+    \entry{floren07}{article}{}
+      \name{labelname}{2}{}{%
+        {{uniquename=0,hash=6c2e0327abbc10ed65f68d90762db88e}{Florencio}{F\bibinitperiod}{Dinei}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=138a45a91746ad040fab227f39318c37}{Herley}{H\bibinitperiod}{Cormac}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{uniquename=0,hash=6c2e0327abbc10ed65f68d90762db88e}{Florencio}{F\bibinitperiod}{Dinei}{D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=138a45a91746ad040fab227f39318c37}{Herley}{H\bibinitperiod}{Cormac}{C\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Microsoft Research}%
+      }
+      \strng{namehash}{af5bba495c7b421425e7f134e53d32c8}
+      \strng{fullhash}{af5bba495c7b421425e7f134e53d32c8}
+      \field{sortinit}{F}
+      \field{labelyear}{2007}
+      \field{datelabelsource}{year}
+      \field{labeltitle}{A Large-Scale Study of Web Password Habits}
+      \field{journaltitle}{Microsoft Research}
+      \field{title}{A Large-Scale Study of Web Password Habits}
+      \field{year}{2007}
+    \endentry
+    \entry{mcafee11}{report}{}
+      \list{institution}{1}{%
+        {National Cyber Cecurity Alliance / McAfee / Zogby Int'l}%
+      }
+      \field{sortinit}{M}
+      \field{labelyear}{2011}
+      \field{labelmonth}{10}
+      \field{datelabelsource}{year}
+      \field{labeltitle}{McAfee Internet Home Users Survey}
+      \field{month}{10}
+      \field{title}{McAfee Internet Home Users Survey}
+      \field{type}{techreport}
+      \field{year}{2011}
+    \endentry
+    \entry{simon14}{article}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=f9fb61e4ea2e9442448e55fe313217ff}{Simonite}{S\bibinitperiod}{Tom}{T\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=f9fb61e4ea2e9442448e55fe313217ff}{Simonite}{S\bibinitperiod}{Tom}{T\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{f9fb61e4ea2e9442448e55fe313217ff}
+      \strng{fullhash}{f9fb61e4ea2e9442448e55fe313217ff}
+      \field{sortinit}{S}
+      \field{labelyear}{2014}
+      \field{labelmonth}{10}
+      \field{labelday}{21}
+      \field{datelabelsource}{year}
+      \field{labeltitle}{A Physical Key to Your Google Account}
+      \field{day}{21}
+      \field{month}{10}
+      \field{title}{A Physical Key to Your Google Account}
+      \field{year}{2014}
+    \endentry
+    \entry{tanaka12}{article}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=7e55d4b79e126a5dc3e39e7d434015fe}{Tanaka}{T\bibinitperiod}{Edward\bibnamedelima Tessen}{E\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=7e55d4b79e126a5dc3e39e7d434015fe}{Tanaka}{T\bibinitperiod}{Edward\bibnamedelima Tessen}{E\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{7e55d4b79e126a5dc3e39e7d434015fe}
+      \strng{fullhash}{7e55d4b79e126a5dc3e39e7d434015fe}
+      \field{sortinit}{T}
+      \field{labelyear}{2012}
+      \field{labelmonth}{03}
+      \field{labelday}{22}
+      \field{datelabelsource}{year}
+      \field{labeltitle}{Replacing the password: More secure high-tech alternatives to traditional alphanumerics}
+      \field{day}{22}
+      \field{month}{03}
+      \field{title}{Replacing the password: More secure high-tech alternatives to traditional alphanumerics}
+      \field{year}{2012}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

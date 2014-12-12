@@ -38,14 +38,11 @@ diskRemoved () {
 		target_dir=`echo $pair | cut -d: -f2`
 
 		if [ "$disk" = $old_disk ]; then
-			# not yet implemented
-			# for f in `tail n +2 $target_dir/.clean-list`; do
-			# 	rm -f $target_dir/$f
-			# done
-			return 0
+			while read -r f; do
+				rm "$f"
+			done < "$target_dir"/.clean-list
 		fi
 	done 
-	return 1
 }
 
 disks=""
@@ -56,7 +53,7 @@ while true; do
 	if [ "$disks" != "$updated_disks" ]; then
 		for d in $disks; do
 			# if disk from old list not in new
-			if hasSalt $d && echo $updated_disks | grep -qv "$d"; then
+			if echo $updated_disks | grep -qv "$d"; then
 				diskRemoved $d $paths
 				paths=`cleanPaths $updated_disks $paths`
 			fi

@@ -2,14 +2,26 @@
 
 source ~/.pad_crypt/utils.sh
 
-echo -n "Enter the mount directory for the PadCrypt disk: "
-read disk
+# TODO: Add command line flags and parsing
+
+if [ "$1" = "-h" ]; then
+	echo "Usage: pcrypt [<pad disk> [<crypt directory> [-a]]]"
+	exit 0
+fi
+
+if [ -n "$1" ]; then
+	disk="$1"
+else
+	echo -n "Enter the mount directory for the PadCrypt disk: "
+	read disk
+fi
 if [ ! -d "$disk" ]; then
 	echo "$disk: No such directory" 1>&2
 	echo -n "Disks are mounted on /Volumes/ for mac, " 1>&2
 	echo "and /media/ for (our) linux. Try again with bash setup.sh -n" 1>&2
 	exit 1
 fi
+
 
 if [ ! -f "$disk/.pad" ]; then 
 	echo "Creating 1GB pad file. This could take some time."
@@ -18,9 +30,12 @@ fi
 
 touch $disk/."`makeSalt`"
 
-echo -n "Enter directory of files to encrypt: "
-read cryptdir
-
+if [ -n "$2" ]; then
+	cryptdir="$2"
+else 
+	echo -n "Enter directory of files to encrypt: "
+	read cryptdir
+fi
 if [ ! -d "$cryptdir" ]; then
 	cryptdir=${cryptdir/#~/$HOME}
 	cryptdir=${cryptdir/#'$HOME'/$HOME}
@@ -33,11 +48,18 @@ fi
 
 echo $cryptdir >> $disk/.crypt-dir
 
-clean_all="false"
-echo -n "Would you like all unencrypted files in this directory to be "
-echo -n "deleted when the padcrypt disk is removed? (y/n): "
-read response
-if [ ${response:0:1} = "y" || ${reponse:0:1} = "Y" ]; then
+if [ -f "$cryptdir"/.clean-list ]; then rm "$cryptdir"/.clean-list; fi
+
+if [ "$3" = "-a" ]; then
+	response="y"
+else
+	clean_all="false"
+	echo -n "Would you like all unencrypted files in this directory to be "
+	echo -n "deleted when the padcrypt disk is removed? (y/n): "
+	read response
+fi
+
+if [ `echo ${response:0:1} | tr '[:upper:]' '[:lower:]'` = "y" ]; then
 	clean_all="true"
 else 
 	loop="true"
@@ -53,8 +75,9 @@ fi
 
 for f in $cryptdir/*; do
 	if ! isPcrypt "$f" && [ ! -f "$f".pcrypt ]; then
-		if $clean_all; then echo $f >> $cryptdir/.clean-list
+		if $clean_all; then echo "$f" >> $cryptdir/.clean-list; fi
 		# Should be secure even with empty password
+		echo Encrypting "$f" ...
 		yes | otpad -p "`makeSalt`" $disk/.pad "$f" "$f".pcrypt
 	fi
 done

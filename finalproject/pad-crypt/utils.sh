@@ -18,7 +18,7 @@ isPcrypt () {
 
 decrypt () {
 	disk="$1"
-	pushd .
+	pushd . 2>&1 > /dev/null 
 	cd "$disk"
 
 	# The most recently set crypt directory.
@@ -40,7 +40,7 @@ decrypt () {
 			fi
 		fi
 	done
-	popd
+	popd 2>&1 > /dev/null
 
 	echo $target_path
 }
