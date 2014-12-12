@@ -17,7 +17,7 @@ if [ "$1" != "-n" ]; then
 		fi
 	elif [ -f "$HOME/.bashrc" ]; then
 		if ! cat ~/.bashrc | grep -qe 'source ~/.profile'; then
-			echo 'source ~/.profile > /dev/null' >> ~/.bash_profile
+			echo 'source ~/.profile > /dev/null' >> ~/.bashrc
 		fi
 	fi
 
@@ -40,7 +40,7 @@ if [ "$1" != "-n" ]; then
 		ln -s ../otpad .
 		ln -s ../usbkeyd.sh ./usbkeyd
 		ln -s ../pcrypt.sh ./pcrypt
-		chmod +xu *
+		chmod u+x *
 	fi
 fi
 
