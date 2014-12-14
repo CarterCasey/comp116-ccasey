@@ -1,7 +1,7 @@
 comp116-ccasey
 ==============
 
-COMP 116 Fall 2014 ~Private~ **Public** Repo for Carter Casey  
+COMP 116 Fall 2014 ~~Private~~ **Public** Repo for Carter Casey  
 
 This is the record of all submissions for the Computer System Security Class. I have some scripts that I wrote for previous assignments that I should upload, too, but they're currently in a much messier repo on the tufts.cs github.  
 
